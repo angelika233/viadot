@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Added `error_log_file` parameter in `BCPTask` that enables setting name of errors logs file 
+- Added `on_error` parameter in `BCPTask` that tells what to do if bcp orror occurs. 
+- Added error log file and `on_error` parameter in `ADLSToAzureSQL`
 - Added `ADLSContainerToContainer` test
+- Added `BigQueryToADLS` flow class which anables extract data from BigQuery.
 - Added `Salesforce` source
 - Added `SalesforceUpsert` task
+- Added `SalesforceBulkUpsert` task
 - Added C4C secret handling to `CloudForCustomersReportToADLS` flow (`c4c_credentials_secret` parameter)
 
 ### Fixed
@@ -19,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Changed `AzureDataLake` tests
+- Fixed `utils.gen_bulk_insert_query_from_df()` failing with > 1000 rows due to INSERT clause limit by chunking the data into multiple INSERTs
 
 ## [0.4.2] - 2022-04-08
 ### Added
